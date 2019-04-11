@@ -12,6 +12,10 @@ import (
 	"unicode/utf8"
 )
 
+var (
+	dbPath = "../bible.db"
+)
+
 type Passage struct {
 	book    string
 	chapter int
@@ -23,7 +27,8 @@ func main() {
 	xmlFile, _ := os.Open("eng-kjv_usfx.xml")
 	defer xmlFile.Close()
 
-	db, e := sql.Open("sqlite3", "kjv.db")
+	os.Remove(dbPath)
+	db, e := sql.Open("sqlite3", dbPath)
 	if e != nil {
 		log.Printf("Got error opening database: %+v.", e)
 		os.Exit(1)
