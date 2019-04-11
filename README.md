@@ -2,8 +2,8 @@
 This package provides a simple Go-based tool for looking up passages of scripture. 
 It presently uses the King James Version, otherwise known as the Authorized Version, 
 and includes books often referred to as deuterocanonical or apocryphal. The books names
-are expected to follow the Orthodox and Catholic naming conventions. For instance, 
-1 Samuel is 1 Kings and 1 Kings is 3 Kings.
+are expected to follow the Orthodox and Catholic naming conventions. For instance, a Protestant reference to 
+1 Samuel will need to be 1 Kings and 1 Kings will need to be 3 Kings.
 
 ```golang
     if bibledb, e = sql.Open("sqlite3", "english.db"); e != nil {
