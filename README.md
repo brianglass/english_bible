@@ -14,7 +14,7 @@ This package provides a simple Go-based tool for looking up passages of scriptur
     
     // passage is a list of verses
     // Each verse has Chapter, Verse, Book, and Content attributes
-    for i, verse := range passage) {
+    for _, verse := range passage) {
         fmt.Printf("%d. %s\n", verse.Verse, verse.Content)
     }
 ```
