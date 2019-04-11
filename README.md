@@ -1,5 +1,7 @@
 # English Bible
-This package provides a simple Go-based tool for looking up passages of scripture:
+This package provides a simple Go-based tool for looking up passages of scripture. 
+It presently uses the King James Version, otherwise known as the Authorized Version, 
+and includes books often referred to as deuterocanonical or apocryphal.
 
 ```golang
     if bibledb, e = sql.Open("sqlite3", "english.db"); e != nil {
@@ -35,7 +37,7 @@ A reference can look like any of the following:
 * 1 Cor 5.6-8; Gal 3.13-14
 * Prov 10, 3, 8
 
-NOTE: this function directly interpolates values from the reference into SQL. 
+**Warning**: this function directly interpolates values from the reference into SQL. 
 This is safe as long as the provided reference is coming from the database. 
 In other words, this method might be unsafe when used to lookup user-provided 
 references.
