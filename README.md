@@ -1,6 +1,7 @@
 # English Bible
 This package provides a simple Go-based tool for looking up passages of scripture:
 
+```golang
     if bibledb, e = sql.Open("sqlite3", "english.db"); e != nil {
         log.Printf("Got error opening database: %#v. Exiting.", e)
         os.Exit(1)
@@ -16,7 +17,7 @@ This package provides a simple Go-based tool for looking up passages of scriptur
     for i := start; i < end && i < len(passage); i++ {
         length += len(passage[i].Content) + len("<p></p>")
     }
-
+```
 
 A reference includes a book name and a verse specification.  A specification 
 can include multiple verse ranges separated by commas, where a range is a 
