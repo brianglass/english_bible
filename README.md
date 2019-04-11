@@ -10,6 +10,13 @@ This package provides a simple Go-based tool for looking up passages of scriptur
     bible := english_bible.NewBible(bibledb)
   
     passage := bible.Lookup("Matt 1.1-25")
+    
+    // passage is a list of verses
+    // Each verse has Chapter, Verse, Book, and Content attributes
+    for i := start; i < end && i < len(passage); i++ {
+        length += len(passage[i].Content) + len("<p></p>")
+    }
+
 
 A reference includes a book name and a verse specification.  A specification 
 can include multiple verse ranges separated by commas, where a range is a 
