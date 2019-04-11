@@ -9,7 +9,7 @@ import (
 )
 
 func TestScriptureLookup(t *testing.T) {
-	db, e := sql.Open("sqlite3", "kjv.db")
+	db, e := sql.Open("sqlite3", "bible.db")
 	if e != nil {
 		t.Errorf("Got error opening database: %#v.", e)
 	}
