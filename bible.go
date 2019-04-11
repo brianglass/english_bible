@@ -1,4 +1,4 @@
-package orthocal
+package english_bible
 
 import (
 	"context"

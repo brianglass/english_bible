@@ -1,9 +1,9 @@
-package orthocal_test
+package english_bible_test
 
 import (
 	"database/sql"
 	"encoding/json"
-	"github.com/brianglass/orthocal"
+	"github.com/brianglass/english-bible"
 	_ "github.com/mattn/go-sqlite3"
 	"testing"
 )
@@ -13,7 +13,7 @@ func TestScriptureLookup(t *testing.T) {
 	if e != nil {
 		t.Errorf("Got error opening database: %#v.", e)
 	}
-	bible := orthocal.NewBible(db)
+	bible := english_bible.NewBible(db)
 
 	testCases := []struct {
 		reference string

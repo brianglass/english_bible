@@ -1,4 +1,4 @@
-package orthocal
+package english_bible
 
 import (
 	"regexp"
@@ -84,10 +84,10 @@ var BookNames = map[string]string{
 	"malachi":         "MAL",
 
 	// Deuterocanonical
-	"tobit":               "TOB",
-	"tob":                 "TOB",
-	"judith":              "JDT",
-	"additions to esther": "ESG",
+	"tobit":                  "TOB",
+	"tob":                    "TOB",
+	"judith":                 "JDT",
+	"additions to esther":    "ESG",
 	"wis":                    "WIS",
 	"wisdom":                 "WIS",
 	"wisdom of solomon":      "WIS",
