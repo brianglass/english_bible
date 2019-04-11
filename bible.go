@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
+	"github.com/brianglass/orthocal"
 	"log"
 	"regexp"
 	"strings"
@@ -18,15 +19,6 @@ var chapterlessBooks = map[string]bool{
 	"3JN": true,
 	"JUD": true,
 }
-
-type Verse struct {
-	Book    string `json:"book"`
-	Chapter uint16 `json:"chapter"`
-	Verse   uint16 `json:"verse"`
-	Content string `json:"content"`
-}
-
-type Passage []Verse
 
 type Bible struct {
 	db *sql.DB
@@ -68,12 +60,12 @@ func NewBible(db *sql.DB) *Bible {
 	database. In other words, this method might be unsafe when used to lookup
 	user-provided references.
 */
-func (self *Bible) Lookup(reference string) Passage {
+func (self *Bible) Lookup(reference string) orthocal.Passage {
 	return self.LookupWithContext(context.Background(), reference)
 }
 
-func (self *Bible) LookupWithContext(ctx context.Context, reference string) Passage {
-	var passage Passage
+func (self *Bible) LookupWithContext(ctx context.Context, reference string) orthocal.Passage {
+	var passage orthocal.Passage
 
 	sql, e := self.buildSQL(reference)
 	if e != nil {
@@ -89,7 +81,7 @@ func (self *Bible) LookupWithContext(ctx context.Context, reference string) Pass
 	defer rows.Close()
 
 	for rows.Next() {
-		var verse Verse
+		var verse orthocal.Verse
 		rows.Scan(&verse.Book, &verse.Chapter, &verse.Verse, &verse.Content)
 		passage = append(passage, verse)
 	}
