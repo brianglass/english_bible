@@ -1,7 +1,9 @@
 # English Bible
 This package provides a simple Go-based tool for looking up passages of scripture. 
 It presently uses the King James Version, otherwise known as the Authorized Version, 
-and includes books often referred to as deuterocanonical or apocryphal.
+and includes books often referred to as deuterocanonical or apocryphal. The books names
+are expected to follow the Orthodox and Catholic naming conventions. For instance, 
+1 Samuel is 1 Kings and 1 Kings is 3 Kings.
 
 ```golang
     if bibledb, e = sql.Open("sqlite3", "english.db"); e != nil {
@@ -36,6 +38,9 @@ A reference can look like any of the following:
 * Jude 1-10
 * 1 Cor 5.6-8; Gal 3.13-14
 * Prov 10, 3, 8
+* Matt 26:2-20; John 13:3-17; Matt 26:21-39; Luke 22:43-45; Matt 26:40-27:2
+* Baruch 3.35-4.4
+* Wis 3.1-9
 
 **Warning**: this function directly interpolates values from the reference into SQL. 
 This is safe as long as the provided reference is coming from the database. 
